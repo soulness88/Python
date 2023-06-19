@@ -1,0 +1,21 @@
+from turtle import *
+
+color("Red")
+forward (100)
+right (90)
+color("Green")
+forward (100)
+right(90)
+color("Blue")
+forward (100)
+right (90)
+color("Yellow")
+forward (100)
+
+left (90)
+color("White")
+forward(200)
+color("lightblue")
+circle(50)
+
+done()
