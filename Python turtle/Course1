@@ -1,5 +1,7 @@
 from turtle import *
 
+getscreen().bgcolor("#FFF4E6")
+
 color("Red")
 forward (100)
 right (90)
@@ -20,5 +22,13 @@ begin_fill()
 color("lightblue")
 circle(50)
 end_fill()
+
+penup()
+right(90)
+forward(120)
+pendown()
+color("Black")
+circle(50)
+
 
 done()
