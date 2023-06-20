@@ -1,0 +1,32 @@
+#Balloon poper
+#DESIGN
+#Up arrow -> infla
+#Tamaño maximo -> pop!
+
+from turtle import *
+
+pop_diameter=100
+diameter=40
+
+def draw_balloon():
+    color("Red")
+    dot(diameter)
+
+def inflate_balloon():
+    global diameter
+    diameter += 10
+    draw_balloon()
+
+    #Control tamaño maximo
+    if diameter >= pop_diameter:
+        clear()
+        diameter=40
+        write("POP!")
+
+draw_balloon()
+
+#Esta funcion nativa de python detecta en pulsacion
+onkey(inflate_balloon, "Up")
+#Hace que el programa quede escuchando
+listen()
+done()
