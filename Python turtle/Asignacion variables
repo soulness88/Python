@@ -1,0 +1,6 @@
+country_name = "Spain"
+population = 31500000
+landlocked = True
+border_size = 356765.97
+
+print (country_name,population,landlocked,border_size)

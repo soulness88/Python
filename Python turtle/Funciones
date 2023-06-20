@@ -1,0 +1,32 @@
+#Ejemplo practico
+print("Hello Bob!")
+print("Hello Steve!")
+print("Hello Mary!")
+
+#Ejemplo funcion simple
+def say_hello (name):
+    print("Hello " + name + "!")
+
+#Ejemplo platanero
+say_hello("Bill")
+say_hello("Ramon")
+say_hello("Rogelia")
+
+#Ejemplo optimo
+for name in ("Bob","Steve","Mary"):
+    say_hello(name)
+
+#Funcion autoconclusiva
+def add_and_print (a, b):
+    sum = a + b
+    print(sum)
+
+#Funcion que devuelve el valor para seguir usandolo
+def add_numbers (a, b):
+    sum = a + b
+    return sum
+
+add_and_print(20,10)
+#Asignamos a la variable num el retorno de la funcion
+num=add_numbers(15,20)
+print(num)

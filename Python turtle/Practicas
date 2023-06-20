@@ -1,0 +1,75 @@
+#Variable int
+age = 20
+#Variable float
+temperature = 25.39
+#Variable string
+country = "Australia"
+#Variable boolean, importante primera letra en Mayuscula
+is_day = True
+
+#Para mostrar las variables por pantalla
+print(age)
+print(temperature)
+print(country)
+print(is_day)
+
+#Reasignacion de variable
+country = "Ireland"
+#Mostrar variables concatenadas
+print(age,temperature,country,is_day)
+
+#Reasignacion tipo de variable
+country = 900
+print(country)
+
+#Operadores -----
+health = 100
+damage = 90
+
+#Resta
+health = health - 20
+#Modo 2: health -= 20
+print(health)
+
+#Suma
+health = health + 30
+#Modo 2: health += 30
+print(health)
+
+#Multiplicar
+health = health * 2
+#Modo 2: health *= 2
+print(health)
+
+#Division, notese cambia tipo variable en el proceso
+health = health / 3
+#Modo 2: health /= 3
+print(health)
+
+#Operacion de variables
+health = health - damage
+print(health)
+
+#Condicionales-------
+a = 5
+b = 8
+
+#Equal
+if a == b:
+    print("a is equal to b")
+else:
+    print("a is not equal to b")
+
+#Not equal
+if a != b:
+    print("a is diferent to b")
+else:
+    print("a is not diferent to b")
+
+#Mayor que
+if b >= a:
+    print("b is greater or equal than a")
+
+#Menor que
+if a <= b:
+    print("a is less or equal than b")
