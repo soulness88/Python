@@ -15,7 +15,10 @@ forward (100)
 left (90)
 color("White")
 forward(200)
+
+begin_fill()
 color("lightblue")
 circle(50)
+end_fill()
 
 done()
