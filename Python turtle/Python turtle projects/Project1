@@ -10,6 +10,7 @@ diameter=40
 
 def draw_balloon():
     color("Red")
+    #Hace circulos y los rellena por defecto
     dot(diameter)
 
 def inflate_balloon():
@@ -21,6 +22,7 @@ def inflate_balloon():
     if diameter >= pop_diameter:
         clear()
         diameter=40
+        #Escribe mensaje por pantalla y no por terminal
         write("POP!")
 
 draw_balloon()
