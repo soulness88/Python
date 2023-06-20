@@ -1,9 +1,13 @@
 from turtle import *
 
+#Cambio fondo de pantalla
 getscreen().bgcolor("#FFF4E6")
 
+#Cambio color puntero
 color("Red")
+#Avance en pixels. Por defecto empieza hacia la derecha y no hacia arriba
 forward (100)
+#Cambio de direccion en grados
 right (90)
 color("Green")
 forward (100)
@@ -18,17 +22,21 @@ left (90)
 color("White")
 forward(200)
 
+#Funcion para rellenar la forma
 begin_fill()
 color("lightblue")
 circle(50)
+#Fin funcion rellenar la forma
 end_fill()
 
+#Puntero deja de escribir
 penup()
 right(90)
 forward(120)
+#Puntero empieza a escribir
 pendown()
 color("Black")
 circle(50)
 
-
+#En visual evita que la terminal se cierre al acabar el programa
 done()
