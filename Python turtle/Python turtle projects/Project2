@@ -1,0 +1,20 @@
+#Star system
+from turtle import *
+from random import *
+
+#Quita la animacion de desplazamiento de la tortuga
+speed(0)
+bgcolor("Black")
+#Hace a la tortuga invisible
+hideturtle()
+
+#Funcion para generar posicion
+def draw_star (xpos,ypos):
+    penup()
+    goto(xpos,ypos)
+    pendown()
+    dot(randrange(20), "White")
+
+for a in range(100):
+    #Para que use toda la pantalla definimos como esta
+    draw_star(randrange(-window_width() / 2,window_width() / 2),randrange(-window_height() / 2,window_height() / 2)) #El eje 0,0 esta en medio

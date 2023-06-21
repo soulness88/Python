@@ -87,3 +87,11 @@ from turtle import *
 forward(randrange(20,100))
 right(randrange(0,360))
 forward(randrange(20,100))
+
+#Recursivas
+def move_and_turn (angle):
+    forward(50)
+    right(angle)
+
+for x in range(8):
+    move_and_turn(45)
