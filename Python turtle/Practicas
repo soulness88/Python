@@ -73,3 +73,17 @@ if b >= a:
 #Menor que
 if a <= b:
     print("a is less or equal than b")
+
+#Randomize
+#Libreria de random
+from random import *
+
+#Funcion de randomizacion con minimo y maximo
+random_number=randrange(1,100)
+print (random_number)
+
+#Ejemplo visual
+from turtle import *
+forward(randrange(20,100))
+right(randrange(0,360))
+forward(randrange(20,100))
