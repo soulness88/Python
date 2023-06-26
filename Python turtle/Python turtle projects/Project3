@@ -1,0 +1,68 @@
+#Turtle mini-game
+from turtle import *
+from random import *
+
+move_distance=20
+speed(0)
+
+#Pintamos el fondo
+Screen().bgcolor("#D2691E")
+penup()
+goto(300,400)
+pendown()
+
+color("Blue")
+
+#Pintamos el agua
+begin_fill()
+goto(500,400)
+goto(500,-400)
+goto(300,-400)
+goto(300,400)
+end_fill()
+
+penup()
+goto(-200,0)
+shape("turtle")
+color("green")
+speed(50)
+
+def move_up():
+    setheading(90)
+    forward(move_distance)
+    check_goal()
+
+def move_down():
+    setheading(270)
+    forward(move_distance)
+    check_goal()
+
+def move_right():
+    setheading(0)
+    forward(move_distance)
+    check_goal()
+
+def move_left():
+    setheading(180)
+    forward(move_distance)
+    check_goal()
+
+def check_goal():
+    if xcor() > 300:
+        hideturtle()
+        color("White")
+        write("YOU WIN!")
+
+        onkey(None,"Up")
+        onkey(None,"Down")
+        onkey(None,"Left")
+        onkey(None,"Right")
+
+#Asociacion de letra pulsada con funcion
+onkey(move_up,"Up")
+onkey(move_down,"Down")
+onkey(move_left,"Left")
+onkey(move_right,"Right")
+#Comando que escucha el input
+listen()
+done()
