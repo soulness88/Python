@@ -1,0 +1,139 @@
+#Variables de comunicacion para recoger respuesta
+welcome_prompt = "Welcome doctor, what would you like to do today:\n - To list all patients, press 1\n - To run a new diagnosis, press 2\n - To quit press q\n"
+name_prompt ="What is the patient's name\n"
+appearance_prompt="What is the patient's appearance?\n - 1: Normal\n - 2: Irritable or Lethargic\n"
+eye_prompt="What is the patient's eyes state?\n - 1: Normal or slighly sunken\n - 2: Very sunken\n"
+skin_pinch_prompt="What is the patient's skin when you pinch it?\n - 1: Normal skin pinch\n - 2: Slow skin pinch\n"
+
+#Variables de resultado para almacenar
+severe_dehydration="Severe dehydration"
+some_dehydration="Some dehydration"
+no_dehydration="No dehydration"
+
+#Variables para el listado
+patients_and_diagnoses = [
+    "Mike . No dehydration",
+    "Sally - Some dehydration"
+]
+
+#Funciones auxiliares para el diagnostico
+#-Para evaluar la apariencia
+def assess_appearance():
+    while(True):
+        appearance=input(appearance_prompt) #Recojo la respuesta del doctor
+        if appearance == "1":
+            eyes=input(eye_prompt) #Recojo el estado de los ojos
+            return assess_eyes(eyes) #Devuelvo el estado de los ojos pasandole la variable que acabo de recoger
+        elif appearance == "2":
+            skin=input(skin_pinch_prompt) #Recojo la respuesta de la piel
+            return assess_skin(skin) #Devuelvo la respuesta de la piel pasandole la variable que acabo de recoger
+        else:
+            print ("Invalid option.")
+
+#-Para evaluar los ojos, recibo la respuesta del doctor de la funcion assess_appearance
+def assess_eyes(eyes):
+    if eyes == "1":
+        return no_dehydration #Devuelvo diagnosis
+    elif eyes == "2":
+        return severe_dehydration
+    else:
+        print("Invalid option\n")
+        return ("Error getting diagnosis")
+
+#-Para evaluar la piel, recibo la respuesta del doctor de la funcion assess_appearance
+def assess_skin(skin):
+    if skin == "1":
+        return some_dehydration
+    elif skin == "2":
+        return severe_dehydration
+    else:
+        print("Invalid option\n")
+        return ("Error getting diagnosis")
+
+#Funcion principal de opcion diagnostico
+def run_diagnosis():
+    name=input(name_prompt)
+    diagnosis=assess_appearance()
+    save_diagnosis(name,diagnosis) #Guardamos diagnostico pasandole el nombre y diagnostico del paciente
+
+#Funcion para guardar el diagnostico
+def save_diagnosis(name, diagnosis):
+    if name == "" or diagnosis == "": #Control campo vacio
+        print("Could not save patient and diagnosis due to invalid input")
+    elif diagnosis != some_dehydration and diagnosis != no_dehydration and diagnosis != severe_dehydration: #Control diagnostico correcto
+        print("Could not save patient and diagnosis due to invalid diagnosis")
+    else:
+        final_diagnosis = name+" - "+diagnosis #Construimos la linea en formato string
+        patients_and_diagnoses.append(final_diagnosis) #Añadimos al final de la lista
+        print("Final diagnosis:", final_diagnosis, "\n")
+
+#Funcion principal para realizar el listado
+def list_patients():
+    print("Listing patients and diagnoses")
+    for patient in patients_and_diagnoses:
+        print(patient)
+
+#MAIN
+def main():
+    while(True):
+        selection=input(welcome_prompt)
+        if selection == "1":
+            list_patients()
+        elif selection == "2":
+            run_diagnosis()
+        elif selection == "q":
+            return("Bye!")
+        else:
+            print("I can't understand what do you want\n")
+
+main()
+
+"""
+# Assessing all if-then-else cases for both skin and eyes
+def test_assess_skin():
+    print(assess_skin("1") == some_dehydration)
+    print(assess_skin("2") == severe_dehydration)
+    print(assess_skin("3") == "")
+
+def test_assess_eyes():
+    print(assess_eyes("1") == no_dehydration)
+    print(assess_eyes("2") == severe_dehydration)
+    print(assess_eyes("3") == "")
+
+def test_assess_appearance():
+    print(assess_appearance())
+
+# Assessing all possible cases of entries for name and diagnosis
+def test_save_new_diagnosis():
+    save_diagnosis("", "")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration"
+    ])
+    save_diagnosis("Nimish", "")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration"
+    ])
+    save_diagnosis("", "No dehydration")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration"
+    ])
+    save_diagnosis("Nimish", "Some dehydration")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration",
+        "Nimish - Some dehydration"
+    ])
+
+
+test_assess_skin()
+test_assess_eyes()
+#test_assess_appearance()
+test_save_new_diagnosis()
+"""
