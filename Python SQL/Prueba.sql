@@ -59,3 +59,9 @@ select TrackId, Name, Title FROM Track inner join Album on Track.AlbumId = Album
 --LEFT OUTER JOIN
 SELECT TrackId, Name, Composer, Title FROM Track LEFT OUTER JOIN Album on Track.AlbumId = Album.AlbumId;
 SELECT AlbumId, Name, Title from Artist LEFT JOIN Album on Album.ArtistId = Artist.ArtistId WHERE AlbumId is NULL;
+
+--EXPORT FILE ON CSV (Inside sqlite on terminal)
+.headers ON
+.mode csv
+.output track-data.csv
+SELECT TrackId, Name, Title from Track INNER JOIN Album on Track.AlbumId = Album.AlbumId;
