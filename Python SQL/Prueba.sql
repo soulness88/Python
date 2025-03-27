@@ -64,4 +64,6 @@ SELECT AlbumId, Name, Title from Artist LEFT JOIN Album on Album.ArtistId = Arti
 .headers ON
 .mode csv
 .output track-data.csv
-SELECT TrackId, Name, Title from Track INNER JOIN Album on Track.AlbumId = Album.AlbumId;
+--SELECT TrackId, Name, Title from Track INNER JOIN Album on Track.AlbumId = Album.AlbumId;
+
+SELECT Track.Name, Album.Title, Genre.Name from Track, Album, Genre where Track.AlbumId = Album.AlbumId and Track.GenreId = Genre.GenreId and Track.Name NOT LIKE "%,%" and Album.Title NOT LIKE "%,%"
